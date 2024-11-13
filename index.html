@@ -10,6 +10,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       height: 100vh;
       margin: 0;
       background-color: #f0f0f0;
@@ -51,6 +52,27 @@
     button:hover {
       background-color: #45a049;
     }
+
+    .info-table {
+      margin-top: 40px;
+      width: 100%;
+      max-width: 400px;
+      border-collapse: collapse;
+    }
+
+    .info-table th, .info-table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    .info-table th {
+      background-color: #f0f0f0;
+    }
+
+    .info-table td.right-aligned {
+      text-align: right;
+    }
   </style>
 </head>
 <body>
@@ -60,13 +82,24 @@
     <button onclick="checkPassword()">Submit</button>
   </div>
 
+  <table class="info-table">
+    <tr>
+      <th>Current Member Count (excluding Goobis):</th>
+      <td class="right-aligned">0</td>
+    </tr>
+    <tr>
+      <th>Cabinet Members</th>
+      <td class="right-aligned">N/A</td>
+    </tr>
+  </table>
+
   <script>
     function checkPassword() {
       const passwordInput = document.getElementById('passwordInput');
       const password = passwordInput.value.trim();
 
       // Replace this with the actual password you want to use
-      const correctPassword = 'mypassword';
+      const correctPassword = 'rfaisbetter';
 
       if (password === correctPassword) {
         // Redirect to the desired website
