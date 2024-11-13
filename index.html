@@ -96,14 +96,14 @@
   <script>
     function checkPassword() {
       const passwordInput = document.getElementById('passwordInput');
-      const password = passwordInput.value.trim();
+      const password = passwordInput.value.trim().toLowerCase(); // Convert to lowercase for case-insensitive comparison
 
-      // Replace this with the actual password you want to use
-      const correctPassword = 'rfaisbetter';
-
-      if (password === correctPassword) {
-        // Redirect to the desired website
-        window.location.href = 'https://www.example.com';
+      // Check for specific passwords
+      if (password === "rfaisbetter") {
+        window.location.href = "https://goobismoobis.github.io/RationalityFactionAnnouncements";
+      } else if (password === "iamacabinetmember") {
+        // Use relative path for the cabinet announcements page
+        window.location.href = "./cabinetannouncements.html";
       } else {
         alert('Incorrect password. Please try again.');
         passwordInput.value = '';
