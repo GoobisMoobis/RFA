@@ -1,2 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+    // Check if the visitor came from the password-protected site
+    if (!document.referrer.includes('goobismoobis.github.io/RFA')) {
+        // If they didn't come from the password page, redirect them to it
+        window.location.href = 'https://goobismoobis.github.io/RFA';
+    }
+</script>
+</html>
