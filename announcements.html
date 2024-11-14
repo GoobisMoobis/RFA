@@ -10,5 +10,12 @@
     <h1>Welcome to the RFA!</h1>
     
     <p>This is the official announcement page for the Rationality NRTS faction. All announcements will be made here. Please make sure to check this every once in a while.</p>
+<script>
+    // Check if the visitor came from the password-protected site
+    if (!document.referrer.includes('goobismoobis.github.io/RFA')) {
+        // If they didn't come from the password page, redirect them to it
+        window.location.href = 'https://goobismoobis.github.io/RFA';
+    }
+</script>
 </body>
 </html>
