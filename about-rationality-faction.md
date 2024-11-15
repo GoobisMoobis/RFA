@@ -1,4 +1,4 @@
-^^^ click this to go back to the homepage
+^^^^^^ click "RFA" to go back to the homepage
 > “There he stood, looking down below on the thriving town. He was a liar, a cheat. He knew revolution was in the future of his civilization. But for now, he could go to sleep, at peace, knowing at the current moment he was safe.”
 
 The **Rationality Faction** is a faction founded by **GoobisMoobis2** on 11/12/2024. It functions on a mostly **Democratic** system. Most decisions made will be voted on.
