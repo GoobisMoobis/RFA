@@ -3,7 +3,7 @@ body {
 }
 
 a {
-    color: #0000EE;
+    color: ##007bff;
     text-decoration: none;
 }
 
@@ -47,3 +47,13 @@ blockquote {
 .new-text {
     color: #ff0000;
 }
+
+.announcement-container {
+    border: 2px solid #b8860b; /* Dark yellow outline */
+    background-color: #fffacd; /* Light yellow background */
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px; /* Optional: rounded corners */
+    max-width: 300px; /* Optional: width limit */
+}
+
