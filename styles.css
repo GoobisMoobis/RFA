@@ -99,3 +99,8 @@ blockquote {
 .info-table td.right-aligned {
       text-align: right;
 }
+
+.container,
+.scroll-container {
+    text-align: left !important; /* Forces left justification */
+}
