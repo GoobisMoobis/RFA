@@ -88,7 +88,7 @@
   <!-- Password Container -->
   <div class="container">
     <h1>Enter Password</h1>
-    <input type="password" id="passwordInput" placeholder="Enter password">
+    <input type="password" id="passwordInput" placeholder="Enter password" onkeypress="handlePasswordInput(event)">
     <button onclick="checkPassword()">Submit</button>
   </div>
   
@@ -140,6 +140,12 @@
         passwordInput.value = '';
       }
     }
+
+    function handlePasswordInput(event) {
+      if (event.key === 'Enter' || event.key === 'Return') {
+      checkPassword();
+      }
+     }
   </script>
 </body>
 </html>
