@@ -19,7 +19,7 @@ body {
       overflow-y: auto; /* Allows scrolling */
 }
 
-    .container {
+.container {
       background-color: white;
       padding: 40px;
       border-radius: 8px;
