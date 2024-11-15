@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rationality Faction Mainpage</title>
   <style>
     body {
@@ -11,9 +11,10 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
       background-color: #f0f0f0;
+      overflow-y: auto; /* Allows scrolling */
     }
 
     .container {
@@ -24,6 +25,7 @@
       text-align: center;
       max-width: 400px;
       width: 90%;
+      margin-bottom: 20px; /* Space between containers */
     }
 
     h1 {
@@ -53,8 +55,15 @@
       background-color: #45a049;
     }
 
+    .scroll-container {
+      max-width: 100%;
+      width: 100%;
+      overflow-x: auto;
+      white-space: normal;
+    }
+
     .info-table {
-      margin-top: 40px;
+      margin-top: 20px;
       width: 100%;
       max-width: 400px;
       border-collapse: collapse;
@@ -73,63 +82,57 @@
     .info-table td.right-aligned {
       text-align: right;
     }
-
-    .scroll-container {
-      max-width: 100%;
-      width: 100%;
-      overflow-x: auto; /* Allow horizontal scrolling */
-      white-space: normal; /* Ensure text can wrap within the container */
-    }
   </style>
 </head>
 <body>
+  <!-- Password Container -->
   <div class="container">
     <h1>Enter Password</h1>
     <input type="password" id="passwordInput" placeholder="Enter password">
     <button onclick="checkPassword()">Submit</button>
   </div>
-  <h3><a href="https://goobismoobis.github.io/about-rationality-faction.html">About the Rationality Faction</a></h3>
+  
+  <!-- New Content Container -->
+  <div class="container">
+    <!-- Scrollable container for the sentence and table -->
+    <div class="scroll-container">
+      <!-- The sentence -->
+      <div style="white-space: normal;">
+        <h3 style="display: inline; margin: 0;">To join the faction, DM </h3>
+        <h3 style="color: #00FF00; display: inline; margin: 0;">@justa_rando8888 </h3>
+        <h3 style="display: inline; margin: 0;">on </h3>
+        <h3 style="color: #5865F2; display: inline; margin: 0;">Discord </h3>
+        <p style="color: #636363; display: inline; margin: 0;">(!Uncle GoobisMoobis2 ! on the commanders</p>
+        <p style="color: #5865F2; display: inline; margin: 0;">Discord </p>
+        <p style="color: #636363; display: inline; margin: 0;">server)</p>
+      </div>
 
-  <!-- Scrollable container -->
-  <div class="scroll-container">
-    <!-- The sentence -->
-    <div style="white-space: normal;">
-      <h3 style="display: inline; margin: 0;">To join the faction, DM </h3>
-      <h3 style="color: #00FF00; display: inline; margin: 0;">@justa_rando8888 </h3>
-      <h3 style="display: inline; margin: 0;">on </h3>
-      <h3 style="color: #5865F2; display: inline; margin: 0;">Discord </h3>
-      <p style="color: #636363; display: inline; margin: 0;">(!Uncle GoobisMoobis2 ! on the commanders</p>
-      <p style="color: #5865F2; display: inline; margin: 0;">Discord </p>
-      <p style="color: #636363; display: inline; margin: 0;">server)</p>
+      <!-- Table -->
+      <table class="info-table">
+        <tr>
+          <th>Current Member Count (excluding Goobis):</th>
+          <td class="right-aligned">0</td>
+        </tr>
+        <tr>
+          <th>Cabinet Members</th>
+          <td class="right-aligned">N/A</td>
+        </tr>
+        <tr>
+          <th>Current Member Goal</th>
+          <td class="right-aligned">5 Members</td>
+        </tr>
+      </table>
     </div>
-
-    <!-- Table -->
-    <table class="info-table">
-      <tr>
-        <th>Current Member Count (excluding Goobis):</th>
-        <td class="right-aligned">0</td>
-      </tr>
-      <tr>
-        <th>Cabinet Members</th>
-        <td class="right-aligned">N/A</td>
-      </tr>
-      <tr>
-        <th>Current Member Goal</th>
-        <td class="right-aligned">5 Members</td>
-      </tr>
-    </table>
   </div>
 
   <script>
     function checkPassword() {
       const passwordInput = document.getElementById('passwordInput');
-      const password = passwordInput.value.trim().toLowerCase(); // Convert to lowercase for case-insensitive comparison
+      const password = passwordInput.value.trim().toLowerCase();
 
-      // Check for specific passwords
-      if (password === "test") { //rfaisbetter
+      if (password === "test") {
         window.location.href = "./announcements.html";
-      } else if (password === "test2") { //iamacabinetmember
-        // Redirect to the markdown file
+      } else if (password === "test2") {
         window.location.href = "./cabinetannouncements.html";
       } else {
         alert('Incorrect password. Please try again.');
