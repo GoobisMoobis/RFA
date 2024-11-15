@@ -96,7 +96,6 @@ blockquote {
 .announcement-container {
   border: 2px solid #b8860b; /* Dark yellow outline */
   background-color: #fffacd; /* Light yellow background */
-  margin-top: 15px;
   max-width: 400px;
   width: 90%;
   margin-bottom: 20px; /* Space between containers */
