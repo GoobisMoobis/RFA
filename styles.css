@@ -1,9 +1,9 @@
  body {
       font-family: Arial, sans-serif;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      justify-content: center !important;
+      align-items: center !important;
+      flex-direction: column !important;
       min-height: 100vh;
       margin: 0;
       background-color: #f0f0f0;
