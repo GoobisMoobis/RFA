@@ -10,7 +10,7 @@
     <h1>Welcome to the RFA! (Rationality Faction Announcements)</h1>
     
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+ document.addEventListener("DOMContentLoaded", function() {
   // Define the URL pattern to check for in the referrer
   const referrerPattern = "goobismoobis.github.io/RFA/cabinetannouncements";
 
@@ -26,9 +26,10 @@
     const container = document.createElement("div");
     container.className = "announcement-container";
 
-    // Create a new <h2> element with the link inside
-    const redirectLink = document.createElement("h2");
-    redirectLink.innerHTML = '<a href="https://goobismoobis.github.io/RFA/cabinetannouncements">Return to Cabinet Announcements</a>';
+    // Create a new <a> element inside the container
+    const redirectLink = document.createElement("a");
+    redirectLink.href = "https://goobismoobis.github.io/RFA/cabinetannouncements"; // Set the link back to the cabinet announcements page
+    redirectLink.innerText = "Return to Cabinet Announcements";
 
     // Append the link to the container
     container.appendChild(redirectLink);
