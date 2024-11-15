@@ -16,13 +16,19 @@
 
         // Check if the referrer includes the specified URL pattern
         if (document.referrer.includes(referrerPattern)) {
+            // Store a flag in session storage to remember the user came from the cabinet announcements
+            sessionStorage.setItem("cameFromCabinetAnnouncements", "true");
+        }
+
+        // Check session storage to see if they came from the cabinet announcements
+        if (sessionStorage.getItem("cameFromCabinetAnnouncements") === "true") {
             // Create a container <div> with styling for the outline and background
             const container = document.createElement("div");
             container.className = "announcement-container";
 
             // Create a new <a> element inside the container
             const redirectLink = document.createElement("a");
-            redirectLink.href = document.referrer; // Set the link back to the referrer URL
+            redirectLink.href = "https://goobismoobis.github.io/RFA/cabinetannouncements"; // Set the link back to the cabinet announcements page
             redirectLink.innerText = "Return to Cabinet Announcements";
 
             // Append the link to the container
