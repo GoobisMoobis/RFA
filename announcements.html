@@ -25,7 +25,7 @@
     </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
   // Check if the referrer includes the specified URL pattern
   const referrerPattern = "goobismoobis.github.io/RFA/cabinetannouncements";
 
@@ -45,12 +45,12 @@
 
     newContainer.appendChild(redirectLink);
 
-    // Find the specific <div class="scroll-container"> inside the first <div class="container">
-    const container = document.querySelector("div.container > div.scroll-container");
+    // Find the first <div class="container">
+    const firstContainer = document.querySelector("div.container");
 
-    // Insert the new container before the found <div.scroll-container>
-    if (container) {
-      container.insertAdjacentElement("beforebegin", newContainer);
+    // Insert the new container outside the "container" divs
+    if (firstContainer) {
+      firstContainer.parentNode.insertBefore(newContainer, firstContainer.nextSibling);
     }
   }
 });
