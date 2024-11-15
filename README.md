@@ -1,1 +1,1 @@
-A password-protected redirect to the Rationality Faction Announcements site.
+A password-protected eebsite for the Rationality NRTS Faction site.
