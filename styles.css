@@ -89,17 +89,16 @@ blockquote {
 }
 
 .announcement-container {
-    border: 2px solid #b8860b; /* Dark yellow outline */
-    background-color: #fffacd; /* Light yellow background */
-    padding: 10px;
-    margin-top: 15px;
-    max-width: 300px; /* Optional: width limit */
-    padding: 40px;
-    border-radius: 8px;
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
-    margin-bottom: 20px; /* Space between containers */
+  border: 2px solid #b8860b; /* Dark yellow outline */
+  background-color: #fffacd; /* Light yellow background */
+  margin-top: 15px;
+  max-width: 400px;
+  width: 90%;
+  margin-bottom: 20px; /* Space between containers */
+  border-radius: 8px;
+  text-align: center;
+  height: auto; /* Set height to auto to allow vertical growth */
+  padding: 15px; /* Add some padding for better spacing */
 }
 
 .link {
