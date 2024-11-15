@@ -71,3 +71,31 @@ blockquote {
       width: 90%;
       margin-bottom: 20px; /* Space between containers */
 }
+
+.scroll-container {
+      max-width: 100%;
+      width: 100%;
+      overflow-x: auto;
+      white-space: normal;
+}
+
+.info-table {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 400px;
+      border-collapse: collapse;
+}
+
+.info-table th, .info-table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+}
+
+.info-table th {
+      background-color: #f0f0f0;
+}
+
+.info-table td.right-aligned {
+      text-align: right;
+}
