@@ -97,8 +97,8 @@ blockquote {
   margin-bottom: 20px; /* Space between containers */
   border-radius: 8px;
   text-align: center;
-  height: auto; /* Set height to auto to allow vertical growth */
-  padding: 15px; /* Add some padding for better spacing */
+  padding: 15px; /* Add padding for better spacing */
+  display: inline-block; /* Use inline-block to auto-scale height */
 }
 
 .link {
