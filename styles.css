@@ -93,8 +93,13 @@ blockquote {
     background-color: #fffacd; /* Light yellow background */
     padding: 10px;
     margin-top: 15px;
-    border-radius: 5px; /* Optional: rounded corners */
     max-width: 300px; /* Optional: width limit */
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    margin-bottom: 20px; /* Space between containers */
 }
 
 .link {
