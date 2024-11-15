@@ -9,6 +9,40 @@
 <body>
     <h1>Welcome to the RFA! (Rationality Faction Announcements)</h1>
     
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Define the URL pattern to check for in the referrer
+        const referrerPattern = "goobismoobis.github.io/RFA/cabinetannouncements";
+
+        // Check if the referrer includes the specified URL pattern
+        if (document.referrer.includes(referrerPattern)) {
+            // Create a container <div> with styling for the outline and background
+            const container = document.createElement("div");
+            container.className = "announcement-container";
+
+            // Create a new <a> element inside the container
+            const redirectLink = document.createElement("a");
+            redirectLink.href = document.referrer; // Set the link back to the referrer URL
+            redirectLink.className = "back-link"; // Add a class name for styling if desired
+            redirectLink.innerText = "Return to Cabinet Announcements";
+
+            // Append the link to the container
+            container.appendChild(redirectLink);
+
+            // Find the specific <h1> element with the desired text
+            const headings = document.querySelectorAll("h1");
+            const targetHeading = Array.from(headings).find(
+                h1 => h1.textContent.trim() === "Welcome to the RFA! (Rationality Faction Announcements)"
+            );
+
+            // Insert the container after the specific <h1> element, if found
+            if (targetHeading) {
+                targetHeading.insertAdjacentElement("afterend", container);
+            }
+        }
+    });
+</script>
+    
     <p>This is the official announcement page for the Rationality NRTS faction. All announcements will be made here. Please make sure to check this every once in a while.</p>
 
     <h2>Announcements</h2>
