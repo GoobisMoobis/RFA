@@ -7,7 +7,7 @@ a:hover {
     text-decoration: underline;
 }
 
- body {
+body {
       font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
@@ -17,7 +17,7 @@ a:hover {
       margin: 0;
       background-color: #f0f0f0;
       overflow-y: auto; /* Allows scrolling */
-    }
+}
 
     .container {
       background-color: white;
@@ -28,9 +28,9 @@ a:hover {
       max-width: 400px;
       width: 90%;
       margin-bottom: 20px; /* Space between containers */
-    }
+}
 
-    button {
+button {
       background-color: #4CAF50;
       color: white;
       padding: 10px 20px;
@@ -38,39 +38,39 @@ a:hover {
       border-radius: 4px;
       cursor: pointer;
       font-size: 16px;
-    }
+}
 
-    button:hover {
+button:hover {
       background-color: #45a049;
-    }
+}
 
-    .scroll-container {
+.scroll-container {
       max-width: 100%;
       width: 100%;
       overflow-x: auto;
       white-space: normal;
-    }
+}
 
-    .info-table {
+.info-table {
       margin-top: 20px;
       width: 100%;
       max-width: 400px;
       border-collapse: collapse;
-    }
+}
 
-    .info-table th, .info-table td {
+.info-table th, .info-table td {
       padding: 10px;
       border: 1px solid #ccc;
       text-align: left;
-    }
+}
 
-    .info-table th {
+.info-table th {
       background-color: #f0f0f0;
-    }
+}
 
-    .info-table td.right-aligned {
+.info-table td.right-aligned {
       text-align: right;
-    }
+}
 
 blockquote {
     border-left: 4px solid #ddd;
