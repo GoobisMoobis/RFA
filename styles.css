@@ -57,3 +57,6 @@ blockquote {
     max-width: 300px; /* Optional: width limit */
 }
 
+.link {
+    color: ##007bff;
+}
