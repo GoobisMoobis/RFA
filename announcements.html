@@ -10,7 +10,9 @@
   <div class="container">
     <h1>Welcome to the RFA! (Rationality Faction Announcements)</h1>
     
-<script>
+    <p>This is the official announcement page for the Rationality NRTS faction. All announcements will be made here. Please make sure to check this every once in a while.</p>
+    
+    <script>
  document.addEventListener("DOMContentLoaded", function() {
   // Define the URL pattern to check for in the referrer
   const referrerPattern = "goobismoobis.github.io/RFA/cabinetannouncements";
@@ -36,9 +38,9 @@
     container.appendChild(redirectLink);
 
     // Find the specific <h1> element with the desired text
-    const headings = document.querySelectorAll("h1");
-    const targetHeading = Array.from(headings).find(
-      h1 => h1.textContent.trim() === "Welcome to the RFA! (Rationality Faction Announcements)"
+    const paragraphs = document.querySelectorAll("p");
+    const targetHeading = Array.from(paragraphs).find(
+      p => p.textContent.trim() === "This is the official announcement page for the Rationality NRTS faction. All announcements will be made here. Please make sure to check this every once in a while."
     );
 
     // Insert the container after the specific <h1> element, if found
@@ -48,8 +50,7 @@
   }
 });
 </script>
-    
-    <p>This is the official announcement page for the Rationality NRTS faction. All announcements will be made here. Please make sure to check this every once in a while.</p>
+
   </div>
     <div class="container">
         <div class="scroll-container">
