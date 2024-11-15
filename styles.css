@@ -32,7 +32,7 @@ body {
 
 /* Add padding above the first container only */
 .container:first-of-type {
-    margin-top: 40px; /* Adjust as needed */
+    margin-top: 80px !important; /* Adjust as needed */
 }
 
 button {
