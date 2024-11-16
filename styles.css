@@ -78,10 +78,12 @@ button:hover {
 }
 
 blockquote {
-    border-left: 4px solid #ddd;
-    margin: 15px 0;
-    padding: 10px 20px;
-    background-color: #f9f9f9;
+    border-left: 4px solid #ddd; /* Keeps the subtle left border */
+    margin: 15px auto; /* Adds vertical space and centers the blockquote */
+    padding: 10px 20px; /* Adds space inside the blockquote */
+    background-color: #f9f9f9; /* Light gray background */
+    max-width: 90%; /* Restricts the width to 80% of the page */
+    box-sizing: border-box; /* Ensures padding is included in the total width */
 }
 
 .sub-text {
