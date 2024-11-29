@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>English-Sju Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .translator-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .translation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .language-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="translator-container">
+        <h2>English ↔ Sju Translator</h2>
+        <div class="translation-grid">
+            <div>
+                <div class="language-label">English</div>
+                <textarea id="english-input" placeholder="Type in English"></textarea>
+            </div>
+            <div>
+                <div class="language-label">Sju</div>
+                <textarea id="sju-input" placeholder="Type in Sju"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dictionary for translations
+        const translations = {
+            // English to Sju
+            "english_to_sju": {
+                "hello": "zal",
+                "world": "vora",
+                "duck": "quidak",
+                "computer": "rishoulru-computer",
+                "water": "mel",
+                "house": "dom",
+                "cat": "miaw",
+                "dog": "bork",
+                "friend": "koral",
+                "love": "amar"
+            },
+            
+            // Sju to English
+            "sju_to_english": {
+                "zal": "hello",
+                "vora": "world",
+                "quidak": "duck",
+                "rishoulru-computer": "computer",
+                "mel": "water",
+                "dom": "house",
+                "miaw": "cat",
+                "bork": "dog",
+                "koral": "friend",
+                "amar": "love"
+            }
+        };
+
+        const englishInput = document.getElementById('english-input');
+        const sjuInput = document.getElementById('sju-input');
+
+        function translateText(inputText, direction) {
+            // Determine which dictionary to use based on translation direction
+            const translationDict = direction === 'english_to_sju' 
+                ? translations.english_to_sju 
+                : translations.sju_to_english;
+            
+            // Split input into words
+            const words = inputText.toLowerCase().split(/\s+/).filter(word => word.trim() !== '');
+            
+            // Translate words
+            const translatedWords = words.map(word => {
+                // Check if word exists in dictionary
+                if (translationDict[word]) {
+                    return translationDict[word];
+                }
+                
+                // No translation found
+                if (direction === 'english_to_sju') {
+                    // English to Sju: add 'ri' prefix or 'shoulru' if it would change meaning
+                    return `ri${word}`;
+                } else {
+                    // Sju to English: return in quotes
+                    return `"${word}"`;
+                }
+            });
+            
+            return translatedWords.join(' ');
+        }
+
+        englishInput.addEventListener('input', function() {
+            if (this.value.trim() === '') {
+                sjuInput.value = '';
+                return;
+            }
+            
+            sjuInput.value = translateText(this.value, 'english_to_sju');
+        });
+
+        sjuInput.addEventListener('input', function() {
+            if (this.value.trim() === '') {
+                englishInput.value = '';
+                return;
+            }
+            
+            englishInput.value = translateText(this.value, 'sju_to_english');
+        });
+    </script>
+</body>
+</html>
