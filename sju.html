@@ -54,86 +54,103 @@
     </div>
 
     <script>
-        // Dictionary for translations
-        const translations = {
-            // English to Sju
-            "english_to_sju": {
-                "hello": "zal",
-                "world": "vora",
-                "duck": "quidak",
-                "computer": "rishoulru-computer",
-                "water": "mel",
-                "house": "dom",
-                "cat": "miaw",
-                "dog": "bork",
-                "friend": "koral",
-                "love": "amar"
-            },
-            
-            // Sju to English
-            "sju_to_english": {
-                "zal": "hello",
-                "vora": "world",
-                "quidak": "duck",
-                "rishoulru-computer": "computer",
-                "mel": "water",
-                "dom": "house",
-                "miaw": "cat",
-                "bork": "dog",
-                "koral": "friend",
-                "amar": "love"
-            }
-        };
+// Dictionary for translations
+const translations = {
+    // English to Sju
+    "english_to_sju": {
+        "hello": "zal",
+        "world": "vora",
+        "duck": "quidak",
+        "computer": "rishoulru-computer",
+        "water": "mel",
+        "house": "dom",
+        "cat": "miaw",
+        "dog": "bork",
+        "friend": "koral",
+        "love": "amar"
+    },
+    
+    // Sju to English
+    "sju_to_english": {
+        "zal": "hello",
+        "vora": "world",
+        "quidak": "duck",
+        "rishoulru-computer": "computer",
+        "mel": "water",
+        "dom": "house",
+        "miaw": "cat",
+        "bork": "dog",
+        "koral": "friend",
+        "amar": "love"
+    }
+};
 
-        const englishInput = document.getElementById('english-input');
-        const sjuInput = document.getElementById('sju-input');
+const englishInput = document.getElementById('english-input');
+const sjuInput = document.getElementById('sju-input');
 
-        function translateText(inputText, direction) {
-            // Determine which dictionary to use based on translation direction
-            const translationDict = direction === 'english_to_sju' 
-                ? translations.english_to_sju 
-                : translations.sju_to_english;
-            
-            // Split input into words
-            const words = inputText.toLowerCase().split(/\s+/).filter(word => word.trim() !== '');
-            
-            // Translate words
-            const translatedWords = words.map(word => {
-                // Check if word exists in dictionary
-                if (translationDict[word]) {
-                    return translationDict[word];
-                }
-                
-                // No translation found
-                if (direction === 'english_to_sju') {
-                    // English to Sju: add 're' prefix or 'shoulru' if it would change meaning
-                    return `re${word}`;
-                } else {
-                    // Sju to English: return in quotes
-                    return `"${word}"`;
-                }
-            });
-            
-            return translatedWords.join(' ');
+function translateText(inputText, direction) {
+    // Determine which dictionary to use based on translation direction
+    const translationDict = direction === 'english_to_sju' 
+        ? translations.english_to_sju 
+        : translations.sju_to_english;
+    
+    // Split input into words
+    const words = inputText.toLowerCase().split(/\s+/).filter(word => word.trim() !== '');
+    
+    // Track the state of undefined words
+    let undefinedWordChain = 0;
+    
+    // Translate words
+    const translatedWords = words.map((word, index) => {
+        // Check if word exists in dictionary
+        if (translationDict[word]) {
+            // Reset undefined word chain if a defined word is found
+            undefinedWordChain = 0;
+            return translationDict[word];
         }
-
-        englishInput.addEventListener('input', function() {
-            if (this.value.trim() === '') {
-                sjuInput.value = '';
-                return;
+        
+        // No translation found
+        if (direction === 'english_to_sju') {
+            // Determine prefix based on undefined word chain
+            let prefix;
+            if (undefinedWordChain === 0) {
+                prefix = 're';
+            } else if (undefinedWordChain === 1) {
+                prefix = 'shoulru';
+            } else {
+                prefix = 'reshouleru';
             }
             
-            sjuInput.value = translateText(this.value, 'english_to_sju');
-        });
-
-        sjuInput.addEventListener('input', function() {
-            if (this.value.trim() === '') {
-                englishInput.value = '';
-                return;
-            }
+            // Increment undefined word chain
+            undefinedWordChain++;
             
-            englishInput.value = translateText(this.value, 'sju_to_english');
-        });
+            return `${prefix}${word}`;
+        } else {
+            // Sju to English: return in quotes
+            return `"${word}"`;
+        }
+    });
+    
+    return translatedWords.join(' ');
+}
+
+englishInput.addEventListener('input', function() {
+    if (this.value.trim() === '') {
+        sjuInput.value = '';
+        return;
+    }
+    
+    sjuInput.value = translateText(this.value, 'english_to_sju');
+});
+
+sjuInput.addEventListener('input', function() {
+    if (this.value.trim() === '') {
+        englishInput.value = '';
+        return;
+    }
+    
+    englishInput.value = translateText(this.value, 'sju_to_english');
+});
     </script>
 </body>
 </html>
