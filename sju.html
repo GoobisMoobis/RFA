@@ -102,12 +102,12 @@ function translateText(inputText, direction) {
     
     // Track the state of undefined words
     let undefinedWordChain = 0;
-    
+
     // Translate words
-    const translatedWords = words.map((word, index) => {
+    const translatedWords = words.map(word => {
         // Check if word exists in dictionary
         if (translationDict[word]) {
-            // Reset undefined word chain if a defined word is found
+            // Reset undefined word chain when a valid word is found
             undefinedWordChain = 0;
             return translationDict[word];
         }
@@ -133,7 +133,7 @@ function translateText(inputText, direction) {
             return `"${word}"`;
         }
     });
-    
+
     return translatedWords.join(' ');
 }
 
