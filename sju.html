@@ -62,7 +62,7 @@ const translations = {
         "duck": "drukkei",
         "cat": "miaw",
         "dog": "bork",
-        "amar": "love",
+        "love": "amar",
         "warrior": "drukkeiarh",
         "the": "yi",
         "shall": "chil",
@@ -97,44 +97,52 @@ function translateText(inputText, direction) {
         ? translations.english_to_sju 
         : translations.sju_to_english;
     
-    // Split input into words
-    const words = inputText.toLowerCase().split(/\s+/).filter(word => word.trim() !== '');
+    // Match English words and any non-whitespace sequences
+    const tokens = inputText.match(/[a-zA-Z]+|[^\s\w]+|\S+/g) || [];
     
-    // Track the state of undefined words
+    // Track the state of undefined English words
     let undefinedWordChain = 0;
 
-    // Translate words
-    const translatedWords = words.map(word => {
-        // Check if word exists in dictionary
-        if (translationDict[word]) {
-            // Reset undefined word chain when a valid word is found
-            undefinedWordChain = 0;
-            return translationDict[word];
-        }
-        
-        // No translation found
-        if (direction === 'english_to_sju') {
-            // Determine prefix based on undefined word chain
-            let prefix;
-            if (undefinedWordChain === 0) {
-                prefix = 're';
-            } else if (undefinedWordChain === 1) {
-                prefix = 'shoulru';
-            } else {
-                prefix = 'reshouleru';
+    // Translate tokens
+    const translatedTokens = tokens.map(token => {
+        // Check if token contains only English letters
+        if (/^[a-zA-Z]+$/.test(token)) {
+            const lowercaseToken = token.toLowerCase();
+            
+            // Check if token exists in dictionary
+            if (translationDict[lowercaseToken]) {
+                // Reset undefined word chain when a valid word is found
+                undefinedWordChain = 0;
+                return translationDict[lowercaseToken];
             }
             
-            // Increment undefined word chain
-            undefinedWordChain++;
-            
-            return `${prefix}${word}`;
-        } else {
-            // Sju to English: return in quotes
-            return `"${word}"`;
+            // No translation found for English word
+            if (direction === 'english_to_sju') {
+                // Determine prefix based on undefined word chain
+                let prefix = '';
+                if (undefinedWordChain === 0) {
+                    prefix = 're';
+                } else if (undefinedWordChain === 1) {
+                    prefix = 'shoulru';
+                } else {
+                    prefix = 'reshouleru';
+                }
+                
+                // Increment undefined word chain
+                undefinedWordChain++;
+                
+                return prefix + token;
+            } else {
+                // Sju to English: return in quotes
+                return `"${token}"`;
+            }
         }
+        
+        // If not an English word, return as-is
+        return token;
     });
 
-    return translatedWords.join(' ');
+    return translatedTokens.join('');
 }
 
 englishInput.addEventListener('input', function() {
