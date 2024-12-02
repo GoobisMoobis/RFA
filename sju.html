@@ -62,7 +62,7 @@ const translations = {
         "duck": "drukkei",
         "cat": "miaw",
         "dog": "bork",
-        "love": "amar",
+        "amar": "love",
         "warrior": "drukkeiarh",
         "the": "yi",
         "shall": "chil",
@@ -99,14 +99,19 @@ function translateText(inputText, direction) {
         ? translations.english_to_sju 
         : translations.sju_to_english;
     
-    // Match English words and any non-whitespace sequences
-    const tokens = inputText.match(/[a-zA-Z]+|[^\s\w]+|\S+/g) || [];
+    // Preserve original spacing between tokens
+    const tokens = inputText.match(/[a-zA-Z]+|[^\s\w]+|\s+/g) || [];
     
     // Track the state of undefined English words
     let undefinedWordChain = 0;
 
     // Translate tokens
     const translatedTokens = tokens.map(token => {
+        // Check if it's whitespace
+        if (/^\s+$/.test(token)) {
+            return token;
+        }
+        
         // Check if token contains only English letters
         if (/^[a-zA-Z]+$/.test(token)) {
             const lowercaseToken = token.toLowerCase();
